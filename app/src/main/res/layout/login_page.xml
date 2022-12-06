@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".LoginPageFragment">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,22 +16,21 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/loginEmailField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="165dp"
             android:ems="10"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+            app:layout_constraintBottom_toTopOf="@+id/loginPasswordField"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            tools:text="@tools:sample/full_names" />
+            app:layout_constraintVertical_bias="0.5" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/loginPasswordField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="241dp"
@@ -39,8 +39,7 @@
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/lorem" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/loginButton"
@@ -48,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="355dp"
             android:text="Login"
+            android:onClick="onClickLoginButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

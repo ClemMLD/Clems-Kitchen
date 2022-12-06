@@ -3,11 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/LoginPageFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.ynov.cours_projet.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first"/>
+        android:id="@+id/LoginPageFragment"
+        android:name="com.ynov.cours_projet.LoginPageFragment"
+        android:label="@string/login_fragment_label"
+        tools:layout="@layout/login_page">
+
+        <action
+            android:id="@+id/action_LoginPageFragment_to_RegisterPageFragment"
+            app:destination="@id/RegisterPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RegisterPageFragment"
+        android:name="com.ynov.cours_projet.RegisterPageFragment"
+        android:label="@string/register_fragment_label"
+        tools:layout="@layout/register_page">
+
+        <action
+            android:id="@+id/action_RegisterPageFragment_to_LoginPageFragment"
+            app:destination="@id/LoginPageFragment" />
+    </fragment>
 </navigation>

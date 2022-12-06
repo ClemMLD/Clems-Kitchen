@@ -13,21 +13,22 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.ynov.cours_projet.databinding.ActivityMainBinding
+import com.ynov.cours_projet.databinding.RegisterPageBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var binding: ActivityMainBinding
+    private val fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -49,16 +50,14 @@ class MainActivity : AppCompatActivity() {
                 .setAnchorView(R.id.fab)
                 .setAction("Action", null).show()
         }
+    }
 
-        val loginButton = findViewById<Button>(R.id.loginButton)
-        loginButton.setOnClickListener {
-            loginUser()
-        }
+    fun onClickRegisterButton(view: View) {
+        createUserAccount()
+    }
 
-        val createAccountButton = findViewById<Button>(R.id.createAccountButton)
-        createAccountButton.setOnClickListener {
-            createUserAccount()
-        }
+    fun onClickLoginButton(view: View) {
+        loginUser()
     }
 
     public override fun onStart() {
@@ -76,8 +75,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun loginUser(): Boolean {
 
-        var email = findViewById<EditText>(R.id.editTextTextEmailAddress)
-        var password = findViewById<EditText>(R.id.editTextTextPassword)
+        var email = findViewById<EditText>(R.id.loginEmailField)
+        var password = findViewById<EditText>(R.id.loginPasswordField)
 
         if(TextUtils.isEmpty(email.text.toString())) {
             Toast.makeText(
@@ -99,16 +98,12 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success")
+                    Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
-                    Toast.makeText(baseContext, "Authentication successful.",
-                        Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     updateUI(null)
                 }
             }
@@ -117,8 +112,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun createUserAccount(): Boolean {
 
-        var email = findViewById<EditText>(R.id.editTextTextEmailAddress)
-        var password = findViewById<EditText>(R.id.editTextTextPassword)
+        var email = findViewById<EditText>(R.id.registrationEmailField)
+        var password = findViewById<EditText>(R.id.registrationPasswordField)
 
         if(TextUtils.isEmpty(email.text.toString())) {
                 Toast.makeText(
@@ -152,7 +147,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun updateUI(user: FirebaseUser?) {
+    fun updateUI(user: FirebaseUser?) {
         Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
     }
 
