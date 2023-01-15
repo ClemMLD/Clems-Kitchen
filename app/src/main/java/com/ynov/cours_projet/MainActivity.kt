@@ -26,15 +26,13 @@ import com.ynov.cours_projet.databinding.RegisterPageBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var auth: FirebaseAuth
+
     private lateinit var binding: ActivityMainBinding
     private val fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
-
-        auth = Firebase.auth
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -63,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+
         if(currentUser != null){
             reload();
         }
