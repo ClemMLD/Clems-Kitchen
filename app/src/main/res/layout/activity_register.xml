@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="51dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/MyWhiteToolbarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:elevation="4dp"
+                android:focusable="false"
+                android:onClick="goBack"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="?android:attr/homeAsUpIndicator"
+                app:title="My Appbar"
+                app:titleTextColor="@android:color/white" />
+
+            <EditText
+                android:id="@+id/registerEmailTextField"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:autofillHints="emailAddress"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.email}"
+                app:layout_constraintBottom_toTopOf="@+id/registerButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/registerPasswordTextField"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:autofillHints="password"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:text="@={viewModel.password}"
+                app:layout_constraintBottom_toTopOf="@+id/registerPasswordConfirmationTextField"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/registerEmailTextField"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/registerPasswordConfirmationTextField"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="82dp"
+                android:autofillHints="password"
+                android:hint="@string/password_confirmation"
+                android:inputType="textPassword"
+                android:text="@={viewModel.passwordConfirmation}"
+                app:layout_constraintBottom_toBottomOf="@+id/registerButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/registerPasswordTextField"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:hapticFeedbackEnabled="true"
+                android:onClick="@{() -> viewModel.signUp(viewModel.email, viewModel.password, viewModel.passwordConfirmation)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/registerEmailTextField"
+                app:layout_constraintVertical_bias="0.643"
+                android:text="@string/register" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ynov.cours_projet.viewmodels.RegisterViewModel" />
+    </data>
+</layout>
