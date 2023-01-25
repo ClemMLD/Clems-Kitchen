@@ -18,12 +18,11 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
                 android:elevation="4dp"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:layout_constraintTop_toTopOf="parent"
-                app:title="My Appbar"
-                app:titleTextColor="@android:color/white" />
+                app:navigationIcon="?android:attr/homeAsUpIndicator"
+                app:title="Connexion" />
 
             <EditText
                 android:id="@+id/loginEmailTextField"

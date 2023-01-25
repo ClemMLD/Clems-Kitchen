@@ -21,7 +21,6 @@
                 style="@style/MyWhiteToolbarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
                 android:clickable="true"
                 android:contextClickable="true"
                 android:elevation="4dp"
@@ -30,8 +29,7 @@
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:navigationIcon="?android:attr/homeAsUpIndicator"
-                app:title="My Appbar"
-                app:titleTextColor="@android:color/white" />
+                app:title="Inscription" />
 
             <EditText
                 android:id="@+id/registerEmailTextField"

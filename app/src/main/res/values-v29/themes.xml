@@ -2,8 +2,12 @@
 
     <style name="Theme.Ynov_cours_projet" parent="Base.Theme.Ynov_cours_projet">
         <!-- Transparent system bars for edge-to-edge. -->
+        <item name="android:actionBarStyle">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+    <style name="Theme.Ynov_cours_projet.NoActionBar">
+
     </style>
 </resources>

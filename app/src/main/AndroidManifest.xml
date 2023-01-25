@@ -28,6 +28,36 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".views.RecipeActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Ynov_cours_projet">
+            <intent-filter>
+                <action android:name="android.intent.action.RECIPE" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".views.AccountActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Ynov_cours_projet">
+            <intent-filter>
+                <action android:name="android.intent.action.ACCOUNT" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".views.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
