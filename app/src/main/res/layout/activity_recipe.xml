@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,10 +27,81 @@
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:navigationIcon="?android:attr/homeAsUpIndicator"
-                app:title="Recettes" />
+                app:title="Détails de la recette" />
+
+            <ImageView
+                android:id="@+id/recipeImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.959"
+                app:layout_constraintStart_toEndOf="@+id/recipePrepMinutesTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipeImageView"
+                app:srcCompat="@drawable/timer_logo" />
+
+            <TextView
+                android:id="@+id/recipePrepMinutesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:textAlignment="viewEnd"
+                app:flow_horizontalAlign="end"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                tools:layout_editor_absoluteY="74dp" />
+
+            <TextView
+                android:id="@+id/recipeTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="40dp"
+                android:text="Chargement..."
+                android:textAlignment="center"
+                android:textSize="50sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recipeImageView" />
+
+            <TextView
+                android:id="@+id/ingredientsTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Ingredients : "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recipeTitle" />
+
+            <TextView
+                android:id="@+id/summaryTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text=" "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ingredientsTextView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
+
+    </ScrollView>
 
     <data>
 

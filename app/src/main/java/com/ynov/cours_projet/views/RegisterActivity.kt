@@ -8,6 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ynov.cours_projet.R
 import com.ynov.cours_projet.databinding.ActivityLoginBinding
 import com.ynov.cours_projet.databinding.ActivityRegisterBinding
@@ -24,14 +26,13 @@ class RegisterActivity : AppCompatActivity()  {
             R.layout.activity_register
         )
         viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
+        viewModel.currentActivity = this
+
         viewModel.toastMessage.observe(this, Observer { message ->
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         })
-    }
 
-    fun goBack(view: View) {
-        finish();
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
     }
 }

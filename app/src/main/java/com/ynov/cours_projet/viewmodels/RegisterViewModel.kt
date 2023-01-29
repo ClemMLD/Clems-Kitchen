@@ -1,5 +1,6 @@
 package com.ynov.cours_projet.viewmodels
 
+import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -7,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterViewModel(application: Application) : AndroidViewModel(application) {
+    lateinit var currentActivity: Activity
     private val _toastMessage = MutableLiveData<String>()
     val toastMessage: LiveData<String>
         get() = _toastMessage
@@ -25,6 +27,7 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         _toastMessage.value = "Sign up successful"
+                        currentActivity.finish()
                     } else {
                         _toastMessage.value = "Sign up failed"
                     }

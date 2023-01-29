@@ -29,9 +29,9 @@ class LoginActivity : AppCompatActivity() {
         val binding: ActivityLoginBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_login
         )
-        val registerButton: Button = findViewById(R.id.registerPageButton)
 
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+
         viewModel.navigateToRegisterEvent.observe(this, Observer {
             if (it == true) {
                 val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
@@ -42,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
         viewModel.toastMessage.observe(this, Observer { message ->
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         })
+        viewModel.currentActivity = this
+
+        val registerButton: Button = findViewById(R.id.registerPageButton)
         registerButton.setOnClickListener {
             viewModel.navigateToRegister()
         }

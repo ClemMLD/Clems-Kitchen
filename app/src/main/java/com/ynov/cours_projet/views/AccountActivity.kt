@@ -22,7 +22,6 @@ import com.ynov.cours_projet.viewmodels.RegisterViewModel
 
 class AccountActivity : AppCompatActivity()  {
     private lateinit var viewModel: AccountViewModel
-    val mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +31,14 @@ class AccountActivity : AppCompatActivity()  {
         )
 
         viewModel = ViewModelProvider(this)[AccountViewModel::class.java]
+        viewModel.currentActivity = this
+
+        val disconnectButton = findViewById<Button>(R.id.disconnectButton)
+        disconnectButton.setOnClickListener {
+            viewModel.disconnectAndGoBack()
+        }
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-    }
-
-    fun disconnectAndGoBack(view: View) {
-        mAuth.signOut()
-        finish()
     }
 }

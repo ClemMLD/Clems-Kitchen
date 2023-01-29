@@ -1,6 +1,7 @@
 package com.ynov.cours_projet.viewmodels
 
 import android.R
+import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -9,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
+    lateinit var currentActivity: Activity
     val email = MutableLiveData<String>("")
     val password = MutableLiveData<String>("")
     private val _toastMessage = MutableLiveData<String>()
@@ -28,6 +30,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     _toastMessage.value = "Login successful"
+                    currentActivity.finish()
                 } else {
                     _toastMessage.value = "Login failed"
                 }
