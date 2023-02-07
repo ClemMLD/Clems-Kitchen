@@ -2,8 +2,10 @@ package com.ynov.cours_projet.views
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -27,6 +29,11 @@ class RegisterActivity : AppCompatActivity()  {
         )
         viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
         viewModel.currentActivity = this
+
+        val registerToolbar: Toolbar = findViewById(R.id.registerToolbar)
+        registerToolbar.setOnClickListener {
+            viewModel.goBack()
+        }
 
         viewModel.toastMessage.observe(this, Observer { message ->
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

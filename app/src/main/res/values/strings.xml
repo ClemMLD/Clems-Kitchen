@@ -52,4 +52,5 @@
     <string name="compte">Compte</string>
     <string name="se_d_connecter">Se déconnecter</string>
     <string name="acc_der_aux_recettes">Accéder aux recettes</string>
+    <string name="recettes_de_cuisine">Recettes de cuisine</string>
 </resources>

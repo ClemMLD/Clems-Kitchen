@@ -37,4 +37,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+    fun goBack() {
+        currentActivity.finish();
+    }
 }

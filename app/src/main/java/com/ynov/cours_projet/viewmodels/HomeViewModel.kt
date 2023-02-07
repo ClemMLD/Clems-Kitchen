@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.ynov.cours_projet.model.RecipeAPI
 import com.ynov.cours_projet.model.RecipeHomeAdapter
@@ -22,6 +23,8 @@ import java.io.File
 
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
+    val navigateToAccountEvent = MutableLiveData<Boolean>()
+    val navigateToLoginEvent = MutableLiveData<Boolean>()
     val interceptor = Interceptor { chain ->
         val request = chain.request()
         request.newBuilder().header("Cache-Control", "public, max-age=" + 5).build()
@@ -70,8 +73,10 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-    fun navigateToRecipes(context: Context, recipeViewModel: RecipeViewModel) {
-        val intent = Intent(context, RecipeActivity::class.java)
-        context.startActivity(intent)
+    fun navigateToAccount() {
+        navigateToAccountEvent.value = true
+    }
+    fun navigateToLogin() {
+        navigateToLoginEvent.value = true
     }
 }

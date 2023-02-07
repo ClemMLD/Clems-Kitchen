@@ -16,24 +16,17 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:text="Recettes de cuisine"
+                android:layout_width="363dp"
+                android:layout_height="125dp"
+                android:layout_marginTop="56dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/recettes_de_cuisine"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textSize="48sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/goToRecipesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="112dp"
-                android:layout_marginTop="564dp"
-                android:text="@string/acc_der_aux_recettes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,8 +34,9 @@
                 android:id="@+id/recipeSearchEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="240dp"
+                android:layout_marginTop="216dp"
                 android:ems="10"
+                android:hint="Titre de recette"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
@@ -51,8 +45,8 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recipe_recycler_view"
-                android:layout_width="323dp"
-                android:layout_height="239dp"
+                android:layout_width="320dp"
+                android:layout_height="339dp"
                 android:layout_marginTop="296dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,14 +54,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/userButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:menu="@menu/bottom_navigation_menu" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/person_icon" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

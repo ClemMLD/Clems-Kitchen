@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -43,6 +44,11 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         })
         viewModel.currentActivity = this
+
+        val loginToolbar: Toolbar = findViewById(R.id.loginToolbar)
+        loginToolbar.setOnClickListener {
+            viewModel.goBack()
+        }
 
         val registerButton: Button = findViewById(R.id.registerPageButton)
         registerButton.setOnClickListener {

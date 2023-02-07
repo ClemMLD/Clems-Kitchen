@@ -2,6 +2,7 @@ package com.ynov.cours_projet.viewmodels
 
 import android.app.Activity
 import android.app.Application
+import android.view.View
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -33,6 +34,9 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
                     }
                 }
         }
+    }
 
+    fun goBack() {
+        currentActivity.finish();
     }
 }

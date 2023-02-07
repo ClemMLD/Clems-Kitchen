@@ -6,10 +6,12 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.ynov.cours_projet.R
 import com.ynov.cours_projet.databinding.ActivityHomeBinding
@@ -27,22 +29,21 @@ class HomeActivity : AppCompatActivity() {
         )
 
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-        val RecipeviewModel = ViewModelProvider(this)[RecipeViewModel::class.java]
 
-        val bottomNavigationView =
-            findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.action_inbox ->
-                    return@OnNavigationItemSelectedListener true
-                R.id.action_starred ->
-                    if (FirebaseAuth.getInstance().currentUser != null) {
-                        startActivity(Intent(this, AccountActivity::class.java))
-                    } else {
-                        startActivity(Intent(this, LoginActivity::class.java))
-                    }
+        viewModel.navigateToAccountEvent.observe(this, Observer {
+            if (it == true) {
+                val intent = Intent(this@HomeActivity, AccountActivity::class.java)
+                startActivity(intent)
+                viewModel.navigateToAccountEvent.value = false
             }
-            false
+        })
+
+        viewModel.navigateToLoginEvent.observe(this, Observer {
+            if (it == true) {
+                val intent = Intent(this@HomeActivity, LoginActivity::class.java)
+                startActivity(intent)
+                viewModel.navigateToLoginEvent.value = false
+            }
         })
 
         val recipeRecyclerView = findViewById<RecyclerView>(R.id.recipe_recycler_view)
@@ -58,9 +59,13 @@ class HomeActivity : AppCompatActivity() {
 
         }
 
-        val goToRecipesButton = findViewById<Button>(R.id.goToRecipesButton)
-        goToRecipesButton.setOnClickListener {
-            viewModel.navigateToRecipes(this, RecipeviewModel)
+        val userButton: FloatingActionButton = findViewById(R.id.userButton)
+        userButton.setOnClickListener {
+            if (FirebaseAuth.getInstance().currentUser != null) {
+                viewModel.navigateToAccount();
+            } else {
+                viewModel.navigateToLogin();
+            }
         }
 
         binding.viewModel = viewModel
