@@ -37,5 +37,11 @@ class RecipeActivity : AppCompatActivity() {
         val favoriteButton: Button = findViewById(R.id.favoriteButton)
         favoriteButton.setOnClickListener {
             viewModel.addRecipeToFavorites(this)
-        }    }
+        }
+
+        val shareButton : Button = findViewById(R.id.shareButton)
+        shareButton.setOnClickListener {
+            viewModel.shareRecipe(this)
+        }
+    }
 }

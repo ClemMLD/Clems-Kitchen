@@ -23,7 +23,7 @@ import com.ynov.cours_projet.viewmodels.LoginViewModel
 import com.ynov.cours_projet.viewmodels.RegisterViewModel
 
 class AccountActivity : AppCompatActivity()  {
-    private lateinit var viewModel: AccountViewModel
+    lateinit var viewModel: AccountViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

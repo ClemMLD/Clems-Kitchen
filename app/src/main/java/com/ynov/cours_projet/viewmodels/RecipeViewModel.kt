@@ -2,11 +2,13 @@ package com.ynov.cours_projet.viewmodels
 
 import android.app.Application
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -44,6 +46,9 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
     val httpCacheDirectory = File(application.cacheDir, "http-cache")
     val cache = Cache(httpCacheDirectory, cacheSize)
 
+    val title = MutableLiveData<String?>()
+    val description = MutableLiveData<String>()
+
     private val RecipeDetailedAPI = Retrofit.Builder()
         .baseUrl("https://api.spoonacular.com/")
         .addConverterFactory(GsonConverterFactory.create())
@@ -75,9 +80,11 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
                             ingredientsTextView.text = ingredientsTextView.text.substring(0, ingredientsTextView.text.lastIndexOf(", "))
                         }
                         recipeTitle.text = response.body()?.title
+                        title.value = response.body()?.title
                         recipePrepMinutes.text = response.body()?.readyInMinutes.toString()
                         Picasso.get().load(response.body()?.image).into(recipeImage)
                         summaryTextView.text = response.body()?.summary?.let { Jsoup.parse(it).text() }
+                        description.value = response.body()?.summary?.let { Jsoup.parse(it).text() }
                         sourceUrlTextView.text = Html.fromHtml("Source : <a href='${response.body()?.spoonacularSourceUrl}'>${response.body()?.spoonacularSourceUrl}</a>")
                         sourceUrlTextView.movementMethod = LinkMovementMethod.getInstance()
                         if (response.body()?.vegetarian == true && response.body()?.vegan == true) {
@@ -121,5 +128,15 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
                     Log.w(TAG, "Error adding recipe to favorites", e)
                 }
         }
+    }
+
+    fun shareRecipe(recipeActivity: RecipeActivity) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "Hey, check out this recipe : ${title.value} ! ${description.value}")
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(recipeActivity, shareIntent, null)
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/recipeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:breakStrategy="balanced"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="title"
+        android:textSize="18sp"
+        android:maxHeight="65dp"
+        android:textStyle="bold"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/removeFavoriteButton"
+        android:layout_marginTop="25px"
+        android:layout_marginBottom="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/delete_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recipeTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
