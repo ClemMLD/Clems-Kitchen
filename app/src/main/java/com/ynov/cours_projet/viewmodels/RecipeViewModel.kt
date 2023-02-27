@@ -1,18 +1,24 @@
 package com.ynov.cours_projet.viewmodels
 
 import android.app.Application
+import android.content.ContentValues.TAG
+import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.ynov.cours_projet.R
-import com.ynov.cours_projet.model.RecipeDetailedAPI
-import com.ynov.cours_projet.model.RecipeDetailedListResponse
-import com.ynov.cours_projet.model.RecipeHomeAdapter
-import com.ynov.cours_projet.model.RecipeHomeResponse
+import com.ynov.cours_projet.model.*
 import com.ynov.cours_projet.views.RecipeActivity
+import kotlinx.coroutines.launch
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -25,6 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
+    private val id = MutableLiveData<String>()
     val interceptor = Interceptor { chain ->
         val request = chain.request()
         request.newBuilder().header("Cache-Control", "public, max-age=" + 5).build()
@@ -45,6 +52,7 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
         .create(RecipeDetailedAPI::class.java)
 
     fun showRecipe(recipeId: String, context: RecipeActivity) {
+        id.value = recipeId
         val apiKey = "1557583705024ba397186c1bfac970d2"
         val call = RecipeDetailedAPI.getRecipes(recipeId, apiKey)
         call.enqueue(object : Callback<RecipeDetailedListResponse> {
@@ -55,6 +63,8 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
                 val ingredientsTextView = context.findViewById<TextView>(R.id.ingredientsTextView)
                 val ingredients = response.body()?.extendedIngredients
                 val summaryTextView = context.findViewById<TextView>(R.id.summaryTextView)
+                val sourceUrlTextView = context.findViewById<TextView>(R.id.sourceUrlTextView)
+                val foodTypeTextView = context.findViewById<TextView>(R.id.foodTypeTextView)
 
                 if (response.isSuccessful) {
                     if (response.body() != null) {
@@ -65,9 +75,20 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
                             ingredientsTextView.text = ingredientsTextView.text.substring(0, ingredientsTextView.text.lastIndexOf(", "))
                         }
                         recipeTitle.text = response.body()?.title
-                        recipePrepMinutes.text = response.body()?.preparationMinutes.toString()
+                        recipePrepMinutes.text = response.body()?.readyInMinutes.toString()
                         Picasso.get().load(response.body()?.image).into(recipeImage)
-                        summaryTextView.text = Jsoup.parse(response.body()?.summary).text()
+                        summaryTextView.text = response.body()?.summary?.let { Jsoup.parse(it).text() }
+                        sourceUrlTextView.text = Html.fromHtml("Source : <a href='${response.body()?.spoonacularSourceUrl}'>${response.body()?.spoonacularSourceUrl}</a>")
+                        sourceUrlTextView.movementMethod = LinkMovementMethod.getInstance()
+                        if (response.body()?.vegetarian == true && response.body()?.vegan == true) {
+                            foodTypeTextView.text = "Vegeratian, Vegan"
+                        }
+                        else if (response.body()?.vegetarian == true) {
+                            foodTypeTextView.text = "Vegeratian"
+                        }
+                        else if (response.body()?.vegan == true) {
+                            foodTypeTextView.text = "Vegan"
+                        }
                     }
                 } else {
                     recipeTitle.text = "Error, please come back later."
@@ -76,5 +97,29 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
             override fun onFailure(call: Call<RecipeDetailedListResponse>, t: Throwable) {
             }
         })
+    }
+    fun addRecipeToFavorites(context: RecipeActivity) {
+        // Check if user is logged in
+        val user =  FirebaseAuth.getInstance().currentUser
+        val title = context.findViewById<TextView>(R.id.recipeTitle).text
+        if (user != null) {
+            // Add recipe to user's favorites
+            val database = Firebase.firestore
+            val recipeData = hashMapOf(
+                "id" to id.value,
+                "title" to title
+            )
+            database.collection("users")
+                .document(user.uid)
+                .collection("favorites")
+                .document(id.value.toString())
+                .set(recipeData)
+                .addOnSuccessListener {
+                    Log.d(TAG, "Recipe added to favorites")
+                }
+                .addOnFailureListener { e ->
+                    Log.w(TAG, "Error adding recipe to favorites", e)
+                }
+        }
     }
 }

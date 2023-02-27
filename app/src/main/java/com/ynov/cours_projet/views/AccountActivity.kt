@@ -11,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.ynov.cours_projet.R
 import com.ynov.cours_projet.databinding.ActivityAccountBinding
@@ -40,5 +42,10 @@ class AccountActivity : AppCompatActivity()  {
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+
+        var favoriteRecyclerView = findViewById<RecyclerView>(R.id.favoriteRecyclerView)
+        favoriteRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        viewModel.displayFavorites(favoriteRecyclerView, this)
     }
 }

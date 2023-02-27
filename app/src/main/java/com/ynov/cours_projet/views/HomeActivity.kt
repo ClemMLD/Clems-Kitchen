@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.ynov.cours_projet.R
 import com.ynov.cours_projet.databinding.ActivityHomeBinding
@@ -23,6 +24,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var viewModel: HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         setContentView(R.layout.activity_home)
         val binding: ActivityHomeBinding = DataBindingUtil.setContentView(
             this, R.layout.activity_home

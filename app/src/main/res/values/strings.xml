@@ -53,4 +53,5 @@
     <string name="se_d_connecter">Se déconnecter</string>
     <string name="acc_der_aux_recettes">Accéder aux recettes</string>
     <string name="recettes_de_cuisine">Recettes de cuisine</string>
+    <string name="add_to_favorites">Add to favorites</string>
 </resources>
