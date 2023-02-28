@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityAccountBinding
+import com.clem.clems_kitchen.utils.GoBack
 import com.clem.clems_kitchen.viewmodels.account.AccountViewModel
 
 class AccountActivity : AppCompatActivity()  {
@@ -31,7 +32,7 @@ class AccountActivity : AppCompatActivity()  {
 
         val loginToolbar: Toolbar = findViewById(R.id.accountToolbar)
         loginToolbar.setOnClickListener {
-            viewModel.goBack(this)
+            GoBack().goBack(this)
         }
 
         binding.viewModel = viewModel

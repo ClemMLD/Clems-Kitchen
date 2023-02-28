@@ -2,81 +2,15 @@
     <string name="app_name">Clem\'s kitchen</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
-        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
-        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
-        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
-        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
-        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
-        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
-        bibendum, vel congue leo egestas.\n\n
-        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
-        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
-        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
-        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
-        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
-        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
-        est.\n\n
-        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
-        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
-        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
-        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
-        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
-        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
-        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
-        convallis.\n\n
-        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
-        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
-        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
-        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
-        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="password_confirmation">Password confirmation</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
-    <string name="accueil">Accueil</string>
-    <string name="compte">Compte</string>
-    <string name="se_d_connecter">Se déconnecter</string>
-    <string name="acc_der_aux_recettes">Accéder aux recettes</string>
-    <string name="recettes_de_cuisine">Recettes de cuisine</string>
     <string name="add_to_favorites">Add to favorites</string>
     <string name="no_favorite">You don\'t have any favorite recipe yet</string>
     <string name="share">Share</string>
-    <string name="home_title">Recipes</string>
-    <string name="recipe_text_field_hint">Recipe title</string>
-    <string name="account_button_description">User account</string>
-    <string name="account_toolbar_title">My account</string>
-    <string name="disconnect_button_text">Disconnect</string>
-    <string name="login_toolbar_title">Login</string>
-    <string name="login_email_field_hint">Email</string>
-    <string name="login_password_field_hint">Password</string>
-    <string name="login_login_button">Login</string>
-    <string name="login_login_button_title">Login</string>
-    <string name="logini_register_button_title">Register</string>
-    <string name="login_register_button_title">Register</string>
-    <string name="recipe_image_description">Recipe image</string>
-    <string name="recipe_toolbar_title">Recipe details</string>
-    <string name="recipe_clock_image_description">Preparation time</string>
-    <string name="recipe_prep_minutes_image_description">Preparation time</string>
-    <string name="recipe_food_type_image_description">Food type</string>
-    <string name="recipe_food_type_text">Not vegetarian/vegan</string>
     <string name="recipe_title">Recipe title</string>
-    <string name="recipe_ingredients">Ingredients :</string>
-    <string name="register_toolbar_title">Register</string>
     <string name="my_account">My account</string>
     <string name="disconnect">Disconnect</string>
     <string name="recipes">Recipes</string>
@@ -90,4 +24,13 @@
     <string name="ingredients">"Ingredients : "</string>
     <string name="delete_favorite">Delete favorite</string>
     <string name="enter_recipe_title">Enter recipe title</string>
+    <string name="vegan_and_vegetarian">Vegeratian, Vegan</string>
+    <string name="vegetarian">Vegeratian</string>
+    <string name="vegan">Vegan</string>
+    <string name="generic_error_message">Error, please come back later.</string>
+    <string name="api_key">1557583705024ba397186c1bfac970d2</string>
+    <string name="response_not_successful">Response not successful</string>
+    <string name="recipe_added_to_favorites">Recipe added to favorites</string>
+    <string name="error_adding_recipe_to_favorites">Error adding recipe to favorites</string>
+    <string name="failed_to_add_recipe_to_favorites">Failed to add recipe to favorites</string>
 </resources>

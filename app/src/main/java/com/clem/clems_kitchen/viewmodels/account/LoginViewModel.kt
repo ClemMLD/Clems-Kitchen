@@ -5,39 +5,43 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.clem.clems_kitchen.utils.GoBack
 import com.google.firebase.auth.FirebaseAuth
+import java.lang.ref.WeakReference
 
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
-    lateinit var currentActivity: Activity
-    val email = MutableLiveData<String>("")
-    val password = MutableLiveData<String>("")
+    private var currentActivityRef: WeakReference<Activity>? = null
+    val email = MutableLiveData("")
+    val password = MutableLiveData("")
     private val _toastMessage = MutableLiveData<String>()
     val toastMessage: LiveData<String>
         get() = _toastMessage
     private val firebaseAuth = FirebaseAuth.getInstance()
     val navigateToRegisterEvent = MutableLiveData<Boolean>()
 
-    fun navigateToRegister() {
-        navigateToRegisterEvent.value = true
+    fun setCurrentActivity(activity: Activity) {
+        currentActivityRef = WeakReference(activity)
     }
 
     fun signIn(email: String, password: String) {
-        if (email.isEmpty() || password.isEmpty()) {
-            _toastMessage.value = "Please provide account informations"
-        } else {
-            firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    _toastMessage.value = "Login successful"
-                    currentActivity.finish()
-                } else {
-                    _toastMessage.value = "Login failed"
+        currentActivityRef?.get()?.let { activity ->
+            if (email.isEmpty() || password.isEmpty()) {
+                _toastMessage.value = "Please provide account informations"
+            } else {
+                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        _toastMessage.value = "Login successful"
+                        GoBack().goBack(activity)
+                    } else {
+                        _toastMessage.value = "Login failed"
+                    }
                 }
             }
         }
     }
 
-    fun goBack() {
-        currentActivity.finish();
+    fun navigateToRegister() {
+        navigateToRegisterEvent.value = true
     }
 }

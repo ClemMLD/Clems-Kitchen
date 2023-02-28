@@ -23,7 +23,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:navigationIcon="?android:attr/homeAsUpIndicator"
                 app:title="@string/login"
-                app:titleTextAppearance="@style/ToolbarStyle"/>
+                app:titleTextAppearance="@style/ToolbarStyle" />
 
             <EditText
                 android:id="@+id/loginEmailTextField"
@@ -89,6 +89,7 @@
     </LinearLayout>
 
     <data>
+
         <variable
             name="viewModel"
             type="com.clem.clems_kitchen.viewmodels.account.LoginViewModel" />

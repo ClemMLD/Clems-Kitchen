@@ -7,32 +7,32 @@
 
     <TextView
         android:id="@+id/recipeTitle"
+        style="@style/MontserratBold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:breakStrategy="balanced"
-        style="@style/MontserratBold"
-        android:textSize="18sp"
-        android:maxHeight="65dp"
-        android:textStyle="bold"
         android:layout_marginEnd="60dp"
+        android:breakStrategy="balanced"
+        android:maxHeight="65dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/removeFavoriteButton"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:contentDescription="@string/delete_favorite"
         android:focusable="true"
         android:src="@drawable/delete_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/recipeTitle"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        android:contentDescription="@string/delete_favorite" />
+        app:layout_constraintVertical_bias="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

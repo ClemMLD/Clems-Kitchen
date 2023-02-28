@@ -7,10 +7,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityLoginBinding
+import com.clem.clems_kitchen.utils.GoBack
 import com.clem.clems_kitchen.viewmodels.account.LoginViewModel
 
 
@@ -27,21 +27,21 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
-        viewModel.navigateToRegisterEvent.observe(this, Observer {
+        viewModel.navigateToRegisterEvent.observe(this) {
             if (it == true) {
                 val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
                 startActivity(intent)
                 viewModel.navigateToRegisterEvent.value = false
             }
-        })
-        viewModel.toastMessage.observe(this, Observer { message ->
+        }
+        viewModel.toastMessage.observe(this) { message ->
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-        })
-        viewModel.currentActivity = this
+        }
+        viewModel.setCurrentActivity(this)
 
         val loginToolbar: Toolbar = findViewById(R.id.loginToolbar)
         loginToolbar.setOnClickListener {
-            viewModel.goBack()
+            GoBack().goBack(this)
         }
 
         val registerButton: Button = findViewById(R.id.loginRegisterButton)

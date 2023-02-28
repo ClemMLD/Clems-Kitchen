@@ -27,8 +27,8 @@ class AccountRecipeAdapter(
         holder.removeFavoriteButton.setOnClickListener {
             context.viewModel.removeFavorite(currentRecipe.data?.get("id").toString())
             Thread.sleep(500)
-            context.finish();
-            context.startActivity(context.intent);
+            context.finish()
+            context.startActivity(context.intent)
         }
         holder.recipeTitle.setOnClickListener {
             val intent = Intent(context, RecipeActivity::class.java)

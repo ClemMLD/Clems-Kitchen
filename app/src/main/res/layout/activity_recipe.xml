@@ -8,169 +8,171 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/recipeToolbar"
-                style="@style/MontserratBold"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                app:layout_constraintTop_toTopOf="parent"
-                app:navigationIcon="?android:attr/homeAsUpIndicator"
-                app:title="@string/recipe_details"
-                app:titleTextAppearance="@style/ToolbarStyle"/>
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <ImageView
-                android:id="@+id/recipePictureImageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipeToolbar"
-                android:contentDescription="@string/recipe_image" />
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/recipeToolbar"
+                    style="@style/MontserratBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="4dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:navigationIcon="?android:attr/homeAsUpIndicator"
+                    app:title="@string/recipe_details"
+                    app:titleTextAppearance="@style/ToolbarStyle" />
 
-            <ImageView
-                android:id="@+id/recipePrepMinutesImageView"
-                android:layout_width="19dp"
-                android:layout_height="19dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.959"
-                app:layout_constraintStart_toEndOf="@+id/recipePrepMinutesTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipePictureImageView"
-                app:srcCompat="@drawable/timer_logo"
-                app:tint="?attr/colorOnBackground"
-                android:contentDescription="@string/preparation_time" />
+                <ImageView
+                    android:id="@+id/recipePictureImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/recipe_image"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipeToolbar" />
 
-            <TextView
-                android:id="@+id/recipePrepMinutesTextView"
-                style="@style/Montserrat"
-                android:layout_width="wrap_content"
-                android:layout_height="17dp"
-                android:layout_marginTop="10dp"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@id/recipePrepMinutesImageView"
-                app:layout_constraintTop_toBottomOf="@id/recipePictureImageView" />
+                <ImageView
+                    android:id="@+id/recipePrepMinutesImageView"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/preparation_time"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.959"
+                    app:layout_constraintStart_toEndOf="@+id/recipePrepMinutesTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipePictureImageView"
+                    app:srcCompat="@drawable/timer_logo"
+                    app:tint="?attr/colorOnBackground" />
 
-            <ImageView
-                android:id="@+id/recipeFoodTypeImageView"
-                android:layout_width="19dp"
-                android:layout_height="19dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.959"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipePrepMinutesImageView"
-                app:srcCompat="@drawable/egg_icon"
-                app:tint="?attr/colorOnBackground"
-                android:contentDescription="@string/food_type" />
+                <TextView
+                    android:id="@+id/recipePrepMinutesTextView"
+                    style="@style/Montserrat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/recipePrepMinutesImageView"
+                    app:layout_constraintTop_toBottomOf="@id/recipePictureImageView" />
 
-            <TextView
-                android:id="@+id/recipeFoodTypeTextView"
-                style="@style/Montserrat"
-                android:layout_width="wrap_content"
-                android:layout_height="17dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/not_vegan_nor_vegetarian"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@id/recipeFoodTypeImageView"
-                app:layout_constraintTop_toBottomOf="@id/recipePictureImageView" />
+                <ImageView
+                    android:id="@+id/recipeFoodTypeImageView"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/food_type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.959"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipePrepMinutesImageView"
+                    app:srcCompat="@drawable/egg_icon"
+                    app:tint="?attr/colorOnBackground" />
 
-            <TextView
-                android:id="@+id/recipeTitle"
-                style="@style/MontserratBold"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="70dp"
-                android:layout_marginEnd="40dp"
-                android:text="@string/loading"
-                android:textAlignment="center"
-                android:textSize="50sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recipePictureImageView" />
+                <TextView
+                    android:id="@+id/recipeFoodTypeTextView"
+                    style="@style/Montserrat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/not_vegan_nor_vegetarian"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/recipeFoodTypeImageView"
+                    app:layout_constraintTop_toBottomOf="@id/recipePictureImageView" />
 
-            <TextView
-                android:id="@+id/recipeIngredientsTextView"
-                style="@style/Montserrat"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:text="@string/ingredients"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recipeTitle" />
+                <TextView
+                    android:id="@+id/recipeTitle"
+                    style="@style/MontserratBold"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginEnd="40dp"
+                    android:text="@string/loading"
+                    android:textAlignment="center"
+                    android:textSize="50sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipePictureImageView" />
 
-            <TextView
-                android:id="@+id/recipeSummaryTextView"
-                style="@style/Montserrat"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:text=""
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recipeIngredientsTextView" />
+                <TextView
+                    android:id="@+id/recipeIngredientsTextView"
+                    style="@style/Montserrat"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/ingredients"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipeTitle" />
 
-            <TextView
-                android:id="@+id/recipeSourceUrlTextView"
-                style="@style/Montserrat"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:text=""
-                android:textAlignment="textStart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recipeSummaryTextView" />
+                <TextView
+                    android:id="@+id/recipeSummaryTextView"
+                    style="@style/Montserrat"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text=""
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipeIngredientsTextView" />
 
-            <Button
-                android:id="@+id/recipeFavoriteButton"
-                style="@style/MontserratBold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_to_favorites"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipeSourceUrlTextView" />
+                <TextView
+                    android:id="@+id/recipeSourceUrlTextView"
+                    style="@style/Montserrat"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipeSummaryTextView" />
 
-            <Button
-                android:id="@+id/recipeShareButton"
-                style="@style/MontserratBold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/share"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recipeFavoriteButton" />
+                <Button
+                    android:id="@+id/recipeFavoriteButton"
+                    style="@style/MontserratBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/add_to_favorites"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipeSourceUrlTextView" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/recipeShareButton"
+                    style="@style/MontserratBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipeFavoriteButton" />
 
-    </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
     </ScrollView>
 

@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.utils.GoBack
 import com.clem.clems_kitchen.views.account.AccountActivity
 import com.clem.clems_kitchen.views.account.AccountRecipeAdapter
 
@@ -31,9 +32,8 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
                             if (adapter != null) {
                                 adapter.recipeList = result
                             }
-                            if (adapter != null) {
-                                adapter.notifyDataSetChanged()
-                            }
+                            val position = adapter?.itemCount ?: 0
+                            adapter?.notifyItemInserted(position)
                         }
                         if (result.isEmpty) {
                             noFavoriteTextView.text = context.getString(R.string.no_favorite)
@@ -65,10 +65,6 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
 
     fun disconnectAndGoBack(context: AccountActivity) {
         mAuth.signOut()
-        context.finish()
-    }
-
-    fun goBack(context: AccountActivity) {
-        context.finish()
+        GoBack().goBack(context)
     }
 }

@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityRecipeBinding
+import com.clem.clems_kitchen.utils.GoBack
 import com.clem.clems_kitchen.viewmodels.recipe.RecipeViewModel
 
 class RecipeActivity : AppCompatActivity() {
@@ -23,9 +24,10 @@ class RecipeActivity : AppCompatActivity() {
         val recipeId = intent.getStringExtra("recipeId")
 
         viewModel = ViewModelProvider(this)[RecipeViewModel::class.java]
+        viewModel.setCurrentActivity(this)
 
         if (recipeId != null) {
-            viewModel.showRecipe(recipeId, this)
+            viewModel.showRecipe(recipeId)
         }
 
         this.viewModel = ViewModelProvider(this)[RecipeViewModel::class.java]
@@ -34,17 +36,17 @@ class RecipeActivity : AppCompatActivity() {
 
         val recipeToolbar: Toolbar = findViewById(R.id.recipeToolbar)
         recipeToolbar.setOnClickListener {
-            viewModel.goBack(this)
+            GoBack().goBack(this)
         }
 
         val favoriteButton: Button = findViewById(R.id.recipeFavoriteButton)
         favoriteButton.setOnClickListener {
-            viewModel.addRecipeToFavorites(this)
+            viewModel.addRecipeToFavorites()
         }
 
         val shareButton : Button = findViewById(R.id.recipeShareButton)
         shareButton.setOnClickListener {
-            viewModel.shareRecipe(this)
+            viewModel.shareRecipe()
         }
     }
 }

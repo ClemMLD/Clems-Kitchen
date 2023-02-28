@@ -7,7 +7,7 @@ import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.model.response.RecipeSearchResponse
 
 class RecipeHomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val recipeTitle = itemView.findViewById<TextView>(R.id.recipeTitle)
+    val recipeTitle: TextView = itemView.findViewById(R.id.recipeTitle)
 
     fun bind(recipe: RecipeSearchResponse) {
         recipeTitle.text = recipe.title

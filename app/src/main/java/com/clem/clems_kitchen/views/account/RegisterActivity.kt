@@ -5,10 +5,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityRegisterBinding
+import com.clem.clems_kitchen.utils.GoBack
 import com.clem.clems_kitchen.viewmodels.account.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity() {
@@ -22,16 +22,16 @@ class RegisterActivity : AppCompatActivity() {
             R.layout.activity_register
         )
         viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
-        viewModel.currentActivity = this
+        viewModel.setCurrentActivity(this)
 
         val registerToolbar: Toolbar = findViewById(R.id.registerToolbar)
         registerToolbar.setOnClickListener {
-            viewModel.goBack()
+            GoBack().goBack(this)
         }
 
-        viewModel.toastMessage.observe(this, Observer { message ->
+        viewModel.toastMessage.observe(this) { message ->
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-        })
+        }
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
