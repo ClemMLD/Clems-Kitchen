@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "525642004579",
-    "project_id": "ynov-dev-mobile",
-    "storage_bucket": "ynov-dev-mobile.appspot.com"
+    "project_number": "827233347496",
+    "project_id": "clems-kitchen",
+    "storage_bucket": "clems-kitchen.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:525642004579:android:de78c6e663115e2048a056",
+        "mobilesdk_app_id": "1:827233347496:android:a468a8c45098d488071f9d",
         "android_client_info": {
-          "package_name": "com.ynov.cours_projet"
+          "package_name": "com.clem.clems_kitchen"
         }
       },
       "oauth_client": [
         {
-          "client_id": "525642004579-v9n39gmarmuefeo8cqbpavgoapjt3rfe.apps.googleusercontent.com",
+          "client_id": "827233347496-t4ga4rve9dju0ost26j3eumu8l0gc1g8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.ynov.cours_projet",
+            "package_name": "com.clem.clems_kitchen",
             "certificate_hash": "3dc771fd3929a51aab3399788d8441759f3c90c0"
           }
         },
         {
-          "client_id": "525642004579-ci54rltt2c1k1ksj9l7cj8l5n0dkh69g.apps.googleusercontent.com",
+          "client_id": "827233347496-ls3jfr73ji1rh6ql2bslrhcttsgiat5v.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCqDA-Qv2niY2STGrITftwsSWSmfYL7qcE"
+          "current_key": "AIzaSyAlzG1nbrlTzjYYmqXwbOq9ywRPpFTFUMo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "525642004579-ci54rltt2c1k1ksj9l7cj8l5n0dkh69g.apps.googleusercontent.com",
+              "client_id": "827233347496-ls3jfr73ji1rh6ql2bslrhcttsgiat5v.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

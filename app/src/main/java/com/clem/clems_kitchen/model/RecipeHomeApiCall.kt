@@ -1,4 +1,4 @@
-package com.ynov.cours_projet.model
+package com.clem.clems_kitchen.model
 
 import retrofit2.Call
 import retrofit2.http.GET

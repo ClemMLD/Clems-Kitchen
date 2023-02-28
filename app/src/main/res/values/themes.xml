@@ -1,10 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Ynov_cours_projet" parent="Theme.Material3.DynamicColors.Light">
+    <style name="Base.Theme.clems_kitchen" parent="Theme.Material3.DynamicColors.Light">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.Ynov_cours_projet" parent="Base.Theme.Ynov_cours_projet" />
+    <style name="Theme.clems_kitchen" parent="Base.Theme.clems_kitchen" />
 </resources>

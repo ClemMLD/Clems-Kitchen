@@ -15,17 +15,17 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/accountToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="4dp"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:navigationIcon="?android:attr/homeAsUpIndicator"
-                app:title="Mon compte" />
+                app:title="@string/my_account" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/favoriteRecyclerView"
+                android:id="@+id/accountRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="539dp"
                 android:layout_marginStart="50dp"
@@ -34,22 +34,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+                app:layout_constraintTop_toBottomOf="@+id/accountToolbar" />
 
             <Button
-                android:id="@+id/disconnectButton"
+                android:id="@+id/accountDisconnectButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:onClick="disconnectAndGoBack"
-                android:text="@string/se_d_connecter"
+                android:text="@string/disconnect"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/favoriteRecyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/accountRecyclerView" />
 
             <TextView
-                android:id="@+id/noFavoriteTextView"
+                android:id="@+id/accountNoFavoriteTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -65,9 +65,8 @@
     </LinearLayout>
 
     <data>
-
         <variable
             name="viewModel"
-            type="com.ynov.cours_projet.viewmodels.AccountViewModel" />
+            type="com.clem.clems_kitchen.viewmodels.AccountViewModel" />
     </data>
 </layout>

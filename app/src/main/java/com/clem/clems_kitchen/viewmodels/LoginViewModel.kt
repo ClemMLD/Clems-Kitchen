@@ -1,6 +1,5 @@
-package com.ynov.cours_projet.viewmodels
+package com.clem.clems_kitchen.viewmodels
 
-import android.R
 import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

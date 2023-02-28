@@ -15,12 +15,12 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/homeTitleTextView"
                 android:layout_width="363dp"
-                android:layout_height="125dp"
-                android:layout_marginTop="56dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="@string/recettes_de_cuisine"
+                android:text="@string/app_name"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textSize="48sp"
@@ -30,13 +30,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/recipeSearchEditText"
+                android:id="@+id/homeSearchEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="216dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:fontFamily="@font/montserrat"
-                android:hint="Titre de recette"
+                android:hint="@string/enter_recipe_title"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
@@ -44,7 +45,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recipe_recycler_view"
+                android:id="@+id/homeRecyclerView"
                 android:layout_width="320dp"
                 android:layout_height="339dp"
                 android:layout_marginTop="296dp"
@@ -55,12 +56,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/userButton"
+                android:id="@+id/homeAccountFloatingButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:clickable="true"
+                android:contentDescription="@string/user_button"
+                android:focusable="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/person_icon" />
@@ -70,9 +73,9 @@
     </LinearLayout>
 
     <data>
-
         <variable
             name="viewModel"
-            type="com.ynov.cours_projet.viewmodels.HomeViewModel" />
+            type="com.clem.clems_kitchen.viewmodels.HomeViewModel" />
     </data>
+
 </layout>

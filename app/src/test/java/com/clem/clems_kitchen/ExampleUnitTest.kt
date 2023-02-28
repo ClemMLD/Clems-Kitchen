@@ -1,4 +1,4 @@
-package com.ynov.cours_projet
+package com.clem.clems_kitchen
 
 import org.junit.Test
 

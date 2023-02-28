@@ -1,6 +1,5 @@
-package com.ynov.cours_projet.viewmodels
+package com.clem.clems_kitchen.viewmodels
 
-import android.app.Activity
 import android.app.Application
 import android.widget.TextView
 import androidx.lifecycle.AndroidViewModel
@@ -8,18 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.ynov.cours_projet.R
-import com.ynov.cours_projet.model.*
-import com.ynov.cours_projet.views.AccountActivity
+import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.model.*
+import com.clem.clems_kitchen.views.AccountActivity
 
 class AccountViewModel(application: Application) : AndroidViewModel(application) {
     private val mAuth = FirebaseAuth.getInstance()
-    lateinit var currentActivity: Activity
 
     fun displayFavorites(favoriteRecyclerView: RecyclerView, context: AccountActivity) {
         val user = FirebaseAuth.getInstance().currentUser
         val database = Firebase.firestore
-        val noFavoriteTextView = context.findViewById<TextView>(R.id.noFavoriteTextView)
+        val noFavoriteTextView = context.findViewById<TextView>(R.id.accountNoFavoriteTextView)
         if (user != null) {
             database.collection("users")
                 .document(user.uid)
@@ -65,8 +63,12 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    fun disconnectAndGoBack() {
+    fun disconnectAndGoBack(context: AccountActivity) {
         mAuth.signOut()
-        currentActivity.finish()
+        context.finish()
+    }
+
+    fun goBack(context: AccountActivity) {
+        context.finish()
     }
 }

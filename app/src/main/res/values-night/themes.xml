@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Ynov_cours_projet" parent="Theme.Material3.DynamicColors.Dark">
+    <style name="Base.Theme.clems_kitchen" parent="Theme.Material3.DynamicColors.Dark">
     <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="windowNoTitle">true</item>

@@ -1,13 +1,12 @@
-package com.ynov.cours_projet.model
+package com.clem.clems_kitchen.model
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ynov.cours_projet.R
-import com.ynov.cours_projet.views.HomeActivity
-import com.ynov.cours_projet.views.RecipeActivity
+import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.views.HomeActivity
+import com.clem.clems_kitchen.views.RecipeActivity
 
 class RecipeHomeAdapter(var recipes: List<RecipeHomeResponse>, private val context: HomeActivity) : RecyclerView.Adapter<RecipeHomeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeHomeViewHolder {

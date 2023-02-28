@@ -5,5 +5,5 @@ pluginManagement {
         mavenCentral()
     }
 }
-rootProject.name = "ynov_cours_projet"
+rootProject.name = "clems_kitchen"
 include ':app'

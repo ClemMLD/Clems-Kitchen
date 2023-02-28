@@ -1,8 +1,7 @@
-package com.ynov.cours_projet.views
+package com.clem.clems_kitchen.views
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -10,14 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.ynov.cours_projet.R
-import com.ynov.cours_projet.databinding.ActivityHomeBinding
-import com.ynov.cours_projet.viewmodels.HomeViewModel
-import com.ynov.cours_projet.viewmodels.RecipeViewModel
+import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.databinding.ActivityHomeBinding
+import com.clem.clems_kitchen.viewmodels.HomeViewModel
 
 
 class HomeActivity : AppCompatActivity() {
@@ -48,10 +45,10 @@ class HomeActivity : AppCompatActivity() {
             }
         })
 
-        val recipeRecyclerView = findViewById<RecyclerView>(R.id.recipe_recycler_view)
+        val recipeRecyclerView = findViewById<RecyclerView>(R.id.homeRecyclerView)
         recipeRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        val searchBar = findViewById<EditText>(R.id.recipeSearchEditText)
+        val searchBar = findViewById<EditText>(R.id.homeSearchEditText)
         searchBar.setOnEditorActionListener { v, actionId, _ ->
                 // get the text from the searchbar
                 val searchTerm = v.text.toString()
@@ -61,7 +58,7 @@ class HomeActivity : AppCompatActivity() {
 
         }
 
-        val userButton: FloatingActionButton = findViewById(R.id.userButton)
+        val userButton: FloatingActionButton = findViewById(R.id.homeAccountFloatingButton)
         userButton.setOnClickListener {
             if (FirebaseAuth.getInstance().currentUser != null) {
                 viewModel.navigateToAccount();

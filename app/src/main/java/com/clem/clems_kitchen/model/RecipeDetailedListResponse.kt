@@ -1,4 +1,4 @@
-package com.ynov.cours_projet.model
+package com.clem.clems_kitchen.model
 
 data class RecipeDetailedListResponse(
     val extendedIngredients: List<RecipeDetailedIngredientsResponse>,

@@ -1,19 +1,16 @@
-package com.ynov.cours_projet.model
+package com.clem.clems_kitchen.model
 
 import android.content.Intent
-import android.content.Intent.getIntent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.QuerySnapshot
-import com.ynov.cours_projet.R
-import com.ynov.cours_projet.views.AccountActivity
-import com.ynov.cours_projet.views.RecipeActivity
+import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.views.AccountActivity
+import com.clem.clems_kitchen.views.RecipeActivity
 
 class AccountRecipeAdapter(
     var recipeList: QuerySnapshot,

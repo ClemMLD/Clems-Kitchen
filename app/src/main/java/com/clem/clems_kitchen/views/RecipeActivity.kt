@@ -1,16 +1,14 @@
-package com.ynov.cours_projet.views
+package com.clem.clems_kitchen.views
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.CheckBox
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.ynov.cours_projet.R
-import com.ynov.cours_projet.databinding.ActivityRecipeBinding
-import com.ynov.cours_projet.viewmodels.RecipeViewModel
+import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.databinding.ActivityRecipeBinding
+import com.clem.clems_kitchen.viewmodels.RecipeViewModel
 
 class RecipeActivity : AppCompatActivity() {
     private lateinit var viewModel: RecipeViewModel
@@ -34,12 +32,17 @@ class RecipeActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        val favoriteButton: Button = findViewById(R.id.favoriteButton)
+        val recipeToolbar: Toolbar = findViewById(R.id.recipeToolbar)
+        recipeToolbar.setOnClickListener {
+            viewModel.goBack(this)
+        }
+
+        val favoriteButton: Button = findViewById(R.id.recipeFavoriteButton)
         favoriteButton.setOnClickListener {
             viewModel.addRecipeToFavorites(this)
         }
 
-        val shareButton : Button = findViewById(R.id.shareButton)
+        val shareButton : Button = findViewById(R.id.recipeShareButton)
         shareButton.setOnClickListener {
             viewModel.shareRecipe(this)
         }

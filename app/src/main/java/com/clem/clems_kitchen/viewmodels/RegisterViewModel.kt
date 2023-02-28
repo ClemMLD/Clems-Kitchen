@@ -1,8 +1,7 @@
-package com.ynov.cours_projet.viewmodels
+package com.clem.clems_kitchen.viewmodels
 
 import android.app.Activity
 import android.app.Application
-import android.view.View
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

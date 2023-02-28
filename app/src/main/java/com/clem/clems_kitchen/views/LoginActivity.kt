@@ -1,9 +1,7 @@
-package com.ynov.cours_projet.views
+package com.clem.clems_kitchen.views
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,13 +9,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import com.ynov.cours_projet.R
-import com.ynov.cours_projet.databinding.ActivityLoginBinding
-import com.ynov.cours_projet.viewmodels.LoginViewModel
-import com.ynov.cours_projet.views.RegisterActivity
+import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.databinding.ActivityLoginBinding
+import com.clem.clems_kitchen.viewmodels.LoginViewModel
 
 
 class LoginActivity : AppCompatActivity() {
@@ -50,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
             viewModel.goBack()
         }
 
-        val registerButton: Button = findViewById(R.id.registerPageButton)
+        val registerButton: Button = findViewById(R.id.loginRegisterButton)
         registerButton.setOnClickListener {
             viewModel.navigateToRegister()
         }

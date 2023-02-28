@@ -1,16 +1,13 @@
-package com.ynov.cours_projet.viewmodels
+package com.clem.clems_kitchen.viewmodels
 
 import android.app.Application
-import android.content.Context
-import android.content.Intent
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.ynov.cours_projet.model.RecipeAPI
-import com.ynov.cours_projet.model.RecipeHomeAdapter
-import com.ynov.cours_projet.model.RecipeHomeListResponse
-import com.ynov.cours_projet.views.HomeActivity
-import com.ynov.cours_projet.views.RecipeActivity
+import com.clem.clems_kitchen.model.RecipeAPI
+import com.clem.clems_kitchen.model.RecipeHomeAdapter
+import com.clem.clems_kitchen.model.RecipeHomeListResponse
+import com.clem.clems_kitchen.views.HomeActivity
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

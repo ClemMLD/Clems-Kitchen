@@ -9,8 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fontFamily="@font/montserrat_bold"
-        android:paddingBottom="100px"
-        android:text="title"
+        android:paddingBottom="50dp"
         android:textSize="18sp"
         android:textStyle="bold" />
 

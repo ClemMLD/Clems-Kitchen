@@ -1,26 +1,16 @@
-package com.ynov.cours_projet.views
+package com.clem.clems_kitchen.views
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.ynov.cours_projet.R
-import com.ynov.cours_projet.databinding.ActivityAccountBinding
-import com.ynov.cours_projet.databinding.ActivityLoginBinding
-import com.ynov.cours_projet.databinding.ActivityRegisterBinding
-import com.ynov.cours_projet.viewmodels.AccountViewModel
-import com.ynov.cours_projet.viewmodels.LoginViewModel
-import com.ynov.cours_projet.viewmodels.RegisterViewModel
+import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.databinding.ActivityAccountBinding
+import com.clem.clems_kitchen.viewmodels.AccountViewModel
 
 class AccountActivity : AppCompatActivity()  {
     lateinit var viewModel: AccountViewModel
@@ -33,17 +23,21 @@ class AccountActivity : AppCompatActivity()  {
         )
 
         viewModel = ViewModelProvider(this)[AccountViewModel::class.java]
-        viewModel.currentActivity = this
 
-        val disconnectButton = findViewById<Button>(R.id.disconnectButton)
+        val disconnectButton = findViewById<Button>(R.id.accountDisconnectButton)
         disconnectButton.setOnClickListener {
-            viewModel.disconnectAndGoBack()
+            viewModel.disconnectAndGoBack(this)
+        }
+
+        val loginToolbar: Toolbar = findViewById(R.id.accountToolbar)
+        loginToolbar.setOnClickListener {
+            viewModel.goBack(this)
         }
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        var favoriteRecyclerView = findViewById<RecyclerView>(R.id.favoriteRecyclerView)
+        val favoriteRecyclerView = findViewById<RecyclerView>(R.id.accountRecyclerView)
         favoriteRecyclerView.layoutManager = LinearLayoutManager(this)
 
         viewModel.displayFavorites(favoriteRecyclerView, this)

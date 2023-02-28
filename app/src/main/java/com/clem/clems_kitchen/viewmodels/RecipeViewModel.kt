@@ -1,4 +1,4 @@
-package com.ynov.cours_projet.viewmodels
+package com.clem.clems_kitchen.viewmodels
 
 import android.app.Application
 import android.content.ContentValues.TAG
@@ -11,16 +11,13 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
-import com.ynov.cours_projet.R
-import com.ynov.cours_projet.model.*
-import com.ynov.cours_projet.views.RecipeActivity
-import kotlinx.coroutines.launch
+import com.clem.clems_kitchen.R
+import com.clem.clems_kitchen.model.*
+import com.clem.clems_kitchen.views.RecipeActivity
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -64,12 +61,12 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
             override fun onResponse(call: Call<RecipeDetailedListResponse>, response: Response<RecipeDetailedListResponse>) {
                 val recipeTitle = context.findViewById<TextView>(R.id.recipeTitle)
                 val recipePrepMinutes = context.findViewById<TextView>(R.id.recipePrepMinutesTextView)
-                val recipeImage = context.findViewById<ImageView>(R.id.recipeImageView)
-                val ingredientsTextView = context.findViewById<TextView>(R.id.ingredientsTextView)
+                val recipeImage = context.findViewById<ImageView>(R.id.recipePictureImageView)
+                val ingredientsTextView = context.findViewById<TextView>(R.id.recipeIngredientsTextView)
                 val ingredients = response.body()?.extendedIngredients
-                val summaryTextView = context.findViewById<TextView>(R.id.summaryTextView)
-                val sourceUrlTextView = context.findViewById<TextView>(R.id.sourceUrlTextView)
-                val foodTypeTextView = context.findViewById<TextView>(R.id.foodTypeTextView)
+                val summaryTextView = context.findViewById<TextView>(R.id.recipeSummaryTextView)
+                val sourceUrlTextView = context.findViewById<TextView>(R.id.recipeSourceUrlTextView)
+                val foodTypeTextView = context.findViewById<TextView>(R.id.recipeFoodTypeTextView)
 
                 if (response.isSuccessful) {
                     if (response.body() != null) {
@@ -138,5 +135,9 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
         }
         val shareIntent = Intent.createChooser(sendIntent, null)
         startActivity(recipeActivity, shareIntent, null)
+    }
+
+    fun goBack(context: RecipeActivity) {
+        context.finish();
     }
 }

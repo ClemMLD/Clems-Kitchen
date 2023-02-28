@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-    namespace 'com.ynov.cours_projet'
+    namespace 'com.clem.clems_kitchen'
     compileSdk 33
 
     dataBinding {
         enabled = true
     }
     defaultConfig {
-        applicationId "com.ynov.cours_projet"
+        applicationId "com.clem.clems_kitchen"
         minSdk 23
         targetSdk 33
         versionCode 1
