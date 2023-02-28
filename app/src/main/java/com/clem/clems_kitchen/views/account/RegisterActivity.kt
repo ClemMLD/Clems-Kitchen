@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.views
+package com.clem.clems_kitchen.views.account
 
 import android.os.Bundle
 import android.widget.Toast
@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityRegisterBinding
-import com.clem.clems_kitchen.viewmodels.RegisterViewModel
+import com.clem.clems_kitchen.viewmodels.account.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var viewModel: RegisterViewModel

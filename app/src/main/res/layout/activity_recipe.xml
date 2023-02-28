@@ -20,13 +20,15 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/recipeToolbar"
+                style="@style/MontserratBold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="4dp"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:navigationIcon="?android:attr/homeAsUpIndicator"
-                app:title="@string/recipe_details" />
+                app:title="@string/recipe_details"
+                app:titleTextAppearance="@style/ToolbarStyle"/>
 
             <ImageView
                 android:id="@+id/recipePictureImageView"
@@ -55,6 +57,7 @@
 
             <TextView
                 android:id="@+id/recipePrepMinutesTextView"
+                style="@style/Montserrat"
                 android:layout_width="wrap_content"
                 android:layout_height="17dp"
                 android:layout_marginTop="10dp"
@@ -78,6 +81,7 @@
 
             <TextView
                 android:id="@+id/recipeFoodTypeTextView"
+                style="@style/Montserrat"
                 android:layout_width="wrap_content"
                 android:layout_height="17dp"
                 android:layout_marginTop="35dp"
@@ -89,6 +93,7 @@
 
             <TextView
                 android:id="@+id/recipeTitle"
+                style="@style/MontserratBold"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_marginStart="40dp"
@@ -103,6 +108,7 @@
 
             <TextView
                 android:id="@+id/recipeIngredientsTextView"
+                style="@style/Montserrat"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_marginStart="20dp"
@@ -115,6 +121,7 @@
 
             <TextView
                 android:id="@+id/recipeSummaryTextView"
+                style="@style/Montserrat"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_marginStart="20dp"
@@ -127,6 +134,7 @@
 
             <TextView
                 android:id="@+id/recipeSourceUrlTextView"
+                style="@style/Montserrat"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_marginStart="20dp"
@@ -140,6 +148,7 @@
 
             <Button
                 android:id="@+id/recipeFavoriteButton"
+                style="@style/MontserratBold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_to_favorites"
@@ -150,6 +159,7 @@
 
             <Button
                 android:id="@+id/recipeShareButton"
+                style="@style/MontserratBold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/share"
@@ -168,6 +178,6 @@
 
         <variable
             name="viewModel"
-            type="com.clem.clems_kitchen.viewmodels.RecipeViewModel" />
+            type="com.clem.clems_kitchen.viewmodels.recipe.RecipeViewModel" />
     </data>
 </layout>

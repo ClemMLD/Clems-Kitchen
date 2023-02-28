@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.viewmodels
+package com.clem.clems_kitchen.viewmodels.recipe
 
 import android.app.Application
 import android.content.ContentValues.TAG
@@ -16,8 +16,9 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.clem.clems_kitchen.R
-import com.clem.clems_kitchen.model.*
-import com.clem.clems_kitchen.views.RecipeActivity
+import com.clem.clems_kitchen.model.api.RecipeInformationApiCall
+import com.clem.clems_kitchen.model.response.RecipeInformationListResponse
+import com.clem.clems_kitchen.views.recipe.RecipeActivity
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -46,19 +47,19 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
     val title = MutableLiveData<String?>()
     val description = MutableLiveData<String>()
 
-    private val RecipeDetailedAPI = Retrofit.Builder()
+    private val RecipeInformationApiCall = Retrofit.Builder()
         .baseUrl("https://api.spoonacular.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(OkHttpClient.Builder().addInterceptor(interceptor).cache(cache).build())
         .build()
-        .create(RecipeDetailedAPI::class.java)
+        .create(RecipeInformationApiCall::class.java)
 
     fun showRecipe(recipeId: String, context: RecipeActivity) {
         id.value = recipeId
         val apiKey = "1557583705024ba397186c1bfac970d2"
-        val call = RecipeDetailedAPI.getRecipes(recipeId, apiKey)
-        call.enqueue(object : Callback<RecipeDetailedListResponse> {
-            override fun onResponse(call: Call<RecipeDetailedListResponse>, response: Response<RecipeDetailedListResponse>) {
+        val call = RecipeInformationApiCall.getRecipes(recipeId, apiKey)
+        call.enqueue(object : Callback<RecipeInformationListResponse> {
+            override fun onResponse(call: Call<RecipeInformationListResponse>, response: Response<RecipeInformationListResponse>) {
                 val recipeTitle = context.findViewById<TextView>(R.id.recipeTitle)
                 val recipePrepMinutes = context.findViewById<TextView>(R.id.recipePrepMinutesTextView)
                 val recipeImage = context.findViewById<ImageView>(R.id.recipePictureImageView)
@@ -98,7 +99,7 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
                     recipeTitle.text = "Error, please come back later."
                 }
             }
-            override fun onFailure(call: Call<RecipeDetailedListResponse>, t: Throwable) {
+            override fun onFailure(call: Call<RecipeInformationListResponse>, t: Throwable) {
             }
         })
     }

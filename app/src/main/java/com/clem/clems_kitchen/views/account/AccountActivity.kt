@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.views
+package com.clem.clems_kitchen.views.account
 
 import android.os.Bundle
 import android.widget.Button
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityAccountBinding
-import com.clem.clems_kitchen.viewmodels.AccountViewModel
+import com.clem.clems_kitchen.viewmodels.account.AccountViewModel
 
 class AccountActivity : AppCompatActivity()  {
     lateinit var viewModel: AccountViewModel

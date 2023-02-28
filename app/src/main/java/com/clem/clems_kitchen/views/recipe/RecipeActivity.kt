@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.views
+package com.clem.clems_kitchen.views.recipe
 
 import android.os.Bundle
 import android.widget.Button
@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityRecipeBinding
-import com.clem.clems_kitchen.viewmodels.RecipeViewModel
+import com.clem.clems_kitchen.viewmodels.recipe.RecipeViewModel
 
 class RecipeActivity : AppCompatActivity() {
     private lateinit var viewModel: RecipeViewModel

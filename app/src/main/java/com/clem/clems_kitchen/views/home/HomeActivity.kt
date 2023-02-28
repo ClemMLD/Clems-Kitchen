@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.views
+package com.clem.clems_kitchen.views.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,7 +14,9 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityHomeBinding
-import com.clem.clems_kitchen.viewmodels.HomeViewModel
+import com.clem.clems_kitchen.viewmodels.home.HomeViewModel
+import com.clem.clems_kitchen.views.account.AccountActivity
+import com.clem.clems_kitchen.views.account.LoginActivity
 
 
 class HomeActivity : AppCompatActivity() {

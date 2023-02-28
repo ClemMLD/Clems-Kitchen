@@ -18,20 +18,23 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/registerToolbar"
+                style="@style/MontserratBold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:focusable="true"
                 android:contextClickable="true"
                 android:elevation="4dp"
+                android:focusable="true"
                 android:onClick="goBack"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:navigationIcon="?android:attr/homeAsUpIndicator"
-                app:title="@string/register" />
+                app:title="@string/register"
+                app:titleTextAppearance="@style/ToolbarStyle"/>
 
             <EditText
                 android:id="@+id/registerEmailTextField"
+                style="@style/Montserrat"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:autofillHints="emailAddress"
@@ -47,6 +50,7 @@
 
             <EditText
                 android:id="@+id/registerPasswordTextField"
+                style="@style/Montserrat"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:autofillHints="password"
@@ -62,6 +66,7 @@
 
             <EditText
                 android:id="@+id/registerPasswordConfirmationTextField"
+                style="@style/Montserrat"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginBottom="82dp"
@@ -78,17 +83,18 @@
 
             <Button
                 android:id="@+id/registerButton"
-                android:layout_width="110dp"
+                style="@style/MontserratBold"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:hapticFeedbackEnabled="true"
                 android:onClick="@{() -> viewModel.signUp(viewModel.email, viewModel.password, viewModel.passwordConfirmation)}"
+                android:text="@string/register"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/registerEmailTextField"
-                app:layout_constraintVertical_bias="0.643"
-                android:text="@string/register" />
+                app:layout_constraintVertical_bias="0.643" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
@@ -96,6 +102,6 @@
     <data>
         <variable
             name="viewModel"
-            type="com.clem.clems_kitchen.viewmodels.RegisterViewModel" />
+            type="com.clem.clems_kitchen.viewmodels.account.RegisterViewModel" />
     </data>
 </layout>

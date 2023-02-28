@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.viewmodels
+package com.clem.clems_kitchen.viewmodels.account
 
 import android.app.Application
 import android.widget.TextView
@@ -8,8 +8,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.clem.clems_kitchen.R
-import com.clem.clems_kitchen.model.*
-import com.clem.clems_kitchen.views.AccountActivity
+import com.clem.clems_kitchen.views.account.AccountActivity
+import com.clem.clems_kitchen.views.account.AccountRecipeAdapter
 
 class AccountViewModel(application: Application) : AndroidViewModel(application) {
     private val mAuth = FirebaseAuth.getInstance()

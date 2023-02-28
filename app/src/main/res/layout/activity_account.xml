@@ -20,9 +20,11 @@
                 android:layout_height="wrap_content"
                 android:elevation="4dp"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:navigationIcon="?android:attr/homeAsUpIndicator"
-                app:title="@string/my_account" />
+                app:title="@string/my_account"
+                app:titleTextAppearance="@style/ToolbarStyle" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/accountRecyclerView"
@@ -46,13 +48,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/accountRecyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/accountRecyclerView"
+                style="@style/MontserratBold"/>
 
             <TextView
                 android:id="@+id/accountNoFavoriteTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
+                style="@style/Montserrat"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -67,6 +71,6 @@
     <data>
         <variable
             name="viewModel"
-            type="com.clem.clems_kitchen.viewmodels.AccountViewModel" />
+            type="com.clem.clems_kitchen.viewmodels.account.AccountViewModel" />
     </data>
 </layout>

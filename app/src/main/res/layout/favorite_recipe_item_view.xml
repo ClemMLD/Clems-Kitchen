@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:breakStrategy="balanced"
-        android:fontFamily="@font/montserrat_bold"
+        style="@style/MontserratBold"
         android:textSize="18sp"
         android:maxHeight="65dp"
         android:textStyle="bold"

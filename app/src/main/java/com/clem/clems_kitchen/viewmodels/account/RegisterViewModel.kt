@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.viewmodels
+package com.clem.clems_kitchen.viewmodels.account
 
 import android.app.Activity
 import android.app.Application

@@ -16,10 +16,10 @@
 
             <TextView
                 android:id="@+id/homeTitleTextView"
+                style="@style/MontserratBold"
                 android:layout_width="363dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:fontFamily="@font/montserrat_bold"
                 android:text="@string/app_name"
                 android:textAlignment="center"
                 android:textAllCaps="true"
@@ -31,12 +31,12 @@
 
             <EditText
                 android:id="@+id/homeSearchEditText"
+                style="@style/Montserrat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="216dp"
                 android:autofillHints=""
                 android:ems="10"
-                android:fontFamily="@font/montserrat"
                 android:hint="@string/enter_recipe_title"
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +75,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.clem.clems_kitchen.viewmodels.HomeViewModel" />
+            type="com.clem.clems_kitchen.viewmodels.home.HomeViewModel" />
     </data>
 
 </layout>

@@ -1,7 +1,7 @@
-package com.clem.clems_kitchen.model
+package com.clem.clems_kitchen.model.response
 
-data class RecipeDetailedListResponse(
-    val extendedIngredients: List<RecipeDetailedIngredientsResponse>,
+data class RecipeInformationListResponse(
+    val extendedIngredients: List<RecipeInformationIngredientsResponse>,
     val title: String?,
     val image: String?,
     val readyInMinutes: Int?,

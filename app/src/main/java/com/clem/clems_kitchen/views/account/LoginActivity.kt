@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.views
+package com.clem.clems_kitchen.views.account
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.clem.clems_kitchen.R
 import com.clem.clems_kitchen.databinding.ActivityLoginBinding
-import com.clem.clems_kitchen.viewmodels.LoginViewModel
+import com.clem.clems_kitchen.viewmodels.account.LoginViewModel
 
 
 class LoginActivity : AppCompatActivity() {

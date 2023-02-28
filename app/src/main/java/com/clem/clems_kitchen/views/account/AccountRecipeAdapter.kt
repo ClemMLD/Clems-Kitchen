@@ -1,4 +1,4 @@
-package com.clem.clems_kitchen.model
+package com.clem.clems_kitchen.views.account
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.QuerySnapshot
 import com.clem.clems_kitchen.R
-import com.clem.clems_kitchen.views.AccountActivity
-import com.clem.clems_kitchen.views.RecipeActivity
+import com.clem.clems_kitchen.views.recipe.RecipeActivity
 
 class AccountRecipeAdapter(
     var recipeList: QuerySnapshot,

@@ -6,5 +6,6 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
     <style name="Theme.clems_kitchen" parent="Base.Theme.clems_kitchen" />
 </resources>
